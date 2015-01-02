@@ -1,1 +1,68 @@
 @import 'bootstrap'
+
+// Overall.
+.container
+  width 720px
+
+.fixed-container
+  padding-top 50px
+
+// Text.
+.header-text
+  font-family "minion-pro", Adobe Garamond Pro, Georgia, Times, serif
+  font-size 1.125em
+  line-height 1.4em
+  color #000
+  text-shadow 0 1px rgba(255,255,255,.4)
+  padding 15px 0
+  -webkit-font-smoothing: antialiased
+
+p
+  font-family "minion-pro", Adobe Garamond Pro, Georgia, Times, serif
+  font-size 1.25em
+  line-height 180%
+  color #18191a
+  -webkit-font-smoothing: antialiased
+
+.attr-text, .date-text
+  color #555
+  font-family "brandon-grotesque", Futura, Helvetica Neue, Helvetica, sans-serif
+  font-size .75em
+  font-weight 500
+  text-transform uppercase
+  letter-spacing .2em
+  -webkit-font-smoothing: antialiased
+
+  -webkit-transition opacity .8s ease-in-out
+  -moz-transition opacity .8s ease-in-out
+  -ms-transition opacity .8s ease-in-out
+  -o-transition opacity .8s ease-in-out
+  transition opacity .8s ease-in-out
+
+
+.date-text
+  font-family "calluna-sans", Futura, Helvetica Neue, Helvetica, sans-serif
+  font-size 1em
+  font-weight 500
+  color #000
+    
+// Navbar.
+nav
+  border none !important
+  background-color #fefefe !important
+  padding 0 100px
+  a
+    cursor pointer
+  ul
+    -webkit-transition opacity 1s ease-in-out
+    -moz-transition opacity 1s ease-in-out
+    -ms-transition opacity 1s ease-in-out
+    -o-transition opacity 1s ease-in-out
+    transition opacity 1s ease-in-out
+
+
+  &.nav-hide
+    background-color transparent
+    ul
+      opacity 0
+

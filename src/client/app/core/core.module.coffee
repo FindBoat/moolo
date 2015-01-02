@@ -1,6 +1,6 @@
 angular.module 'app.core', [
   # Angular modules.
-#  'ngAnimate'
+  'ngAnimate'
   'ngRoute'
   'ngResource'
 #  'ngSanitize'

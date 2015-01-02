@@ -4,8 +4,7 @@ module.exports =
   createPost: (req, res, next) ->
     post = new Post
       userId: req.user._id
-      title: req.body.title
-      body: req.body.body
+      content: req.body.content
     post.save (err, post) ->
       if err? then return next err
       return res.send post

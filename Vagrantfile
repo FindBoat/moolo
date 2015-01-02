@@ -19,7 +19,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  config.vm.network "forwarded_port", guest: 3000, host: 3000
+  config.vm.network "forwarded_port", guest: 3000, host: 2000
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -38,7 +38,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  config.vm.synced_folder "../angular-express-coffee", "/home/vagrant/angular-express-coffee"
+  config.vm.synced_folder "../moolo", "/home/vagrant/moolo"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -125,13 +125,24 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Further configurations.
   config.vm.provision :shell do |sh|
       sh.inline = <<-EOF
+
+      # Install Mongodb.
+      sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+      echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
       sudo apt-get update
+      sudo apt-get install -y mongodb-org
 
       # Config nodejs.
       sudo apt-get install -y python-software-properties
       sudo add-apt-repository ppa:chris-lea/node.js
       sudo apt-get update
       sudo apt-get install -y nodejs
+
+      # npm
+      cd moolo
+      sudo npm install
+      sudo npm install -g coffee-script
+      cd -
 
       # Personal config.
       sudo apt-get -y install vim

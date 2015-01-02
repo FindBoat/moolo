@@ -1,0 +1,12 @@
+.page-carousel
+  .header(ng-repeat='m in mems' ng-show='$index==indexShow')
+    .header-top.date-text
+      p.date-text {{m.createAt}}
+    .header-content
+      p.header-text {{m.content}}
+    .header-bottom
+      p.pull-right.attr-text {{m.location}}
+
+  .refresh(ng-show='indexShow>=0')
+    a(ng-click='refresh()')
+      i.fa.fa-circle-o-notch.fa-spin.fa-lg

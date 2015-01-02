@@ -73,7 +73,7 @@ routehelper.$inject = [
   'logger'
   'routehelperConfig'
 ]
-  
+
 angular
   .module 'blocks.router'
   .provider 'routehelperConfig', routehelperConfig

@@ -1,14 +1,17 @@
 config =
-  appTitle: 'Angular Modular Demo'
+  appTitle: 'Moolo'
   version: '0.0.1'
 
 configure = (
   $httpProvider,
+  $locationProvider,
   $routeProvider,
   routehelperConfigProvider
 ) ->
+  $locationProvider.hashPrefix '!'
+
   routehelperConfigProvider.config.$routeProvider = $routeProvider
-  routehelperConfigProvider.config.docTitle = 'App | '
+  routehelperConfigProvider.config.docTitle = 'Moolo | '
 
   $httpProvider.interceptors.push 'ErrorInterceptor'
   $httpProvider.interceptors.push 'TokenInterceptor'
@@ -16,8 +19,12 @@ configure = (
   # Maybe set resolveAlways here.
   return
 
-configure.$inject = ['$httpProvider', '$routeProvider',
-    'routehelperConfigProvider']
+configure.$inject = [
+  '$httpProvider'
+  '$locationProvider'
+  '$routeProvider'
+  'routehelperConfigProvider'
+]
 
 angular
   .module 'app.core'
