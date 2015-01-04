@@ -1,0 +1,18 @@
+.page-post-input
+  .post-header
+    p.pull-left.date-text TODAY
+   .post-content
+     form
+       .form-group
+         textarea.form-control(
+             placeholder='Write something for today' rows='1'
+             ng-focus='onFocus()' ng-blur='onBlur()'
+             ng-change='onChange()' ng-model='newPost.content')
+   .post-footer.attr-text.attr-hide
+     span {{newPost.location}}
+     .action.pull-right
+       span {{charLeft}}
+       a(ng-mousedown='cancel()')
+         i.fa.fa-2x.fa-close
+       a(ng-mousedown='submitPost()')
+         i.fa.fa-2x.fa-arrow-right

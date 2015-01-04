@@ -6,8 +6,19 @@
 
     .journal-content
       .container
-        .post(ng-repeat='p in vm.ps')
-          div(post)
+        div(post-input new-post='vm.post' post-method='vm.postMethod()'
+            default-location='vm.defaultLocation')
+        .post(ng-repeat='post in vm.posts | slice:vm.page*vm.numPerPage:vm.page*vm.numPerPage+vm.numPerPage')
+          div(post the-post='post')
+
+    .pagination.text-center
+      .container
+         a(ng-class='{hidden: vm.page==0}' ng-click='vm.prevPage()')
+           i.fa.fa-2x.fa-chevron-left
+         a(ng-class='{hidden: (1 + vm.page)*vm.numPerPage>=vm.posts.length}'
+           ng-click='vm.nextPage()')
+           i.fa.fa-2x.fa-chevron-right
+
           
          
           

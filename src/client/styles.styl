@@ -2,12 +2,20 @@
 
 // Overall.
 .container
-  width 720px
+  max-width 720px
 
 .fixed-container
   padding-top 50px
 
 // Text.
+body
+  font-family "minion-pro", Adobe Garamond Pro, Georgia, Times, serif
+  font-size 14px
+  line-height 180%
+  color #18191a
+  -webkit-font-smoothing: antialiased
+
+
 .header-text
   font-family "minion-pro", Adobe Garamond Pro, Georgia, Times, serif
   font-size 1.125em
@@ -39,7 +47,6 @@ p
   -o-transition opacity .8s ease-in-out
   transition opacity .8s ease-in-out
 
-
 .date-text
   font-family "calluna-sans", Futura, Helvetica Neue, Helvetica, sans-serif
   font-size 1em
@@ -60,9 +67,29 @@ nav
     -o-transition opacity 1s ease-in-out
     transition opacity 1s ease-in-out
 
-
   &.nav-hide
     background-color transparent
     ul
       opacity 0
 
+  .navbar-brand
+    color #000 !important
+    &.shake
+      -webkit-animation .65s rubberBand ease-in-out
+      animation .65s rubberBand ease-in-out
+
+    &:hover
+      -webkit-animation .65s rubberBand ease-in-out
+      animation .65s rubberBand ease-in-out
+      
+
+// Footer.
+.page-footer
+  text-align center
+  border-top 1px solid #ddd
+  margin-top 30px
+  padding 30px 0
+  p
+    color #999
+    font-size 1em
+    font-weight 600

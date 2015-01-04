@@ -3,5 +3,4 @@ angular.module 'app', [
   'app.auth'
   'app.journal'
   'app.layout'
-  'app.posts'
 ]

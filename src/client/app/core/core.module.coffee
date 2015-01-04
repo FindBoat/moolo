@@ -3,10 +3,9 @@ angular.module 'app.core', [
   'ngAnimate'
   'ngRoute'
   'ngResource'
-#  'ngSanitize'
 
   # 3rd party modules.
-#  'ngplus'
+  'geolocation'
 
   # Our reusable cross app code modules.
   'blocks.logger'

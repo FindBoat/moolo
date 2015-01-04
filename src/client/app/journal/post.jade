@@ -1,12 +1,10 @@
 .page-post.post-attr-hide(
     ng-mouseover='onMouseover()' ng-mouseleave='onMouseleave()')
   .post-header
-    p.pull-left.date-text APRIL 2, 2013
-    p.pull-right.attr-text 10:35 PM
+    p.pull-left.date-text {{thePost.createAt | momentFormat: 'MMMM DD, YYYY'}}
+    p.pull-right.attr-text {{thePost.createAt | momentFormat: 'hh:mm a'}}
   .post-content
-    p
-      | My name is Michiel de Graaf I design interfaces, craft websites and write cascading style sheets & hypertext markup. Previously lead designer Previously lead designer Previously lead designer Previously 
+    p {{thePost.content}}
   .post-footer.attr-text
-    span 35 F
-    span San Francisco, CA
+    span {{thePost.location}}
   

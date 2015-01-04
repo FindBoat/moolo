@@ -1,7 +1,7 @@
 .page-carousel
   .header(ng-repeat='m in mems' ng-show='$index==indexShow')
     .header-top.date-text
-      p.date-text {{m.createAt}}
+      p.date-text {{m.createAt | momentFormat: 'MMMM DD, YYYY'}}
     .header-content
       p.header-text {{m.content}}
     .header-bottom
