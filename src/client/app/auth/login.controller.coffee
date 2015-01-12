@@ -2,15 +2,21 @@ loginController = ($location, authService, logger) ->
   vm = this
   init = () ->
     vm.login = {}
+    vm.formSubmitted = false
+    vm.loginFail = false
     vm.submitLoginForm = submitLoginForm
 
 
   submitLoginForm = ->
+    if not vm.form.$valid
+      vm.formSubmitted = true
+      return
+    
     authService.login(vm.login).then(
       (res) ->
-        logger.success 'Login success'
-        $location.path '/posts'
+        $location.path '/journal'
     , (error) ->
+        vm.loginFail = true
         logger.error 'Login error'
     )
     

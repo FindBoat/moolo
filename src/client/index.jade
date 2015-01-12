@@ -28,6 +28,8 @@ html(ng-app='app')
     meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no')
 
     title(ng-bind='title')
+    link(rel='shortcut icon' href='/img/favicon.ico' type='image/x-icon')
+    link(rel='icon' href='/img/favicon.ico' type='image/x-icon')
 
     link(href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'
          rel='stylesheet')
@@ -40,6 +42,10 @@ html(ng-app='app')
     link(href='/client/app/journal/carousel.css' rel='stylesheet')
     link(href='/client/app/journal/post.css' rel='stylesheet')
     link(href='/client/app/journal/post-input.css' rel='stylesheet')
+    link(href='/client/app/landing/landing.css' rel='stylesheet')
+    link(href='/client/app/landing/landing-header.css' rel='stylesheet')
+    link(href='/client/app/auth/signup.css' rel='stylesheet')
+    link(href='/client/app/auth/login.css' rel='stylesheet')
       
   body
     div
@@ -88,6 +94,11 @@ html(ng-app='app')
     script(src='/client/app/auth/config.route.js')
     script(src='/client/app/auth/signup.controller.js')
     script(src='/client/app/auth/login.controller.js')
+
+    // Landing modules.
+    script(src='/client/app/landing/landing.module.js')
+    script(src='/client/app/landing/config.route.js')
+    script(src='/client/app/landing/landing-header.directive.js')
 
     // Journal modules.
     script(src='/client/app/journal/journal.module.js')

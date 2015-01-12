@@ -1,13 +1,28 @@
 .page-login
-  .row
-    .col-xs-6.col-xs-offset-3
-      form.form-horizontal(role='form' ng-submit='vm.submitLoginForm()')
+  .fixed-container.container
+    .row
+      h2 Login
+      p
+        | Moolo is the most private, focused place for your daily thoughts.
+      form(name='vm.form' role='form' ng-submit='vm.submitLoginForm()'
+           novalidate)
         .form-group
+          label(for='email') Email
           input.form-control(type='email' name='email' placeholder='Email'
-                             ng-model='vm.login.email')
+                             ng-model='vm.login.email' required)
+          p.text-danger(
+              ng-show='vm.form.email.$invalid && vm.formSubmitted')
+            | Valid email is required.
         .form-group
+          label(for='password') Password
           input.form-control(type='password' name='password'
-                             placeholder='Password' ng-model='vm.login.password')
-        .row
-          input.col-xs-12.btn.btn-primary.btn-large(
-              type='submit' value='Log in')
+                             placeholder='Password'
+                             ng-model='vm.login.password' required)
+          p.text-danger(
+              ng-show='vm.form.password.$invalid && vm.formSubmitted')
+            | Password is required.
+        .action
+          input.btn.btn-primary(type='submit' value='Log in')
+
+        p.text-danger(ng-show='vm.loginFail')
+          | Incorrect email or password. Try again!

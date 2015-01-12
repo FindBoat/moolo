@@ -1,0 +1,19 @@
+.page-landing-header
+  .logo
+    width 500px
+    &.shake
+      -webkit-animation .8s rubberBand ease-in-out
+      animation .8s rubberBand ease-in-out
+    &:hover
+      -webkit-animation .65s rubberBand ease-in-out
+      animation .65s rubberBand ease-in-out
+
+  h3
+    -webkit-transition opacity .8s ease-in-out
+    -moz-transition opacity .8s ease-in-out
+    -ms-transition opacity .8s ease-in-out
+    -o-transition opacity .8s ease-in-out
+    transition opacity .8s ease-in-out
+    opacity 0
+    &.appear
+      opacity 1

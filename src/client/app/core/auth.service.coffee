@@ -8,12 +8,10 @@ authService = ($http, $window) ->
     user = res.data.user
     
   signup = (req) ->
-    $http.post('/api/users', req).then (res) ->
-      storeRes res
+    $http.post('/api/users', req).then (res) -> storeRes res
   
   login = (req) ->
-    $http.post('/api/auth', req).then (res) ->
-      storeRes res
+    $http.post('/api/auth', req).then (res) -> storeRes res
 
   logout = ->
     $window.localStorage.removeItem 'token'

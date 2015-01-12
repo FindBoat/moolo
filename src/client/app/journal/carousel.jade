@@ -3,9 +3,10 @@
     .header-top.date-text
       p.date-text {{m.createAt | momentFormat: 'MMMM DD, YYYY'}}
     .header-content
-      p.header-text {{m.content}}
-    .header-bottom
-      p.pull-right.attr-text {{m.location}}
+      div(ng-bind-html='m.content')
+    .header-bottom.pull-right.attr-text
+      i.fa.fa-map-marker
+      &nbsp;{{m.location}}
 
   .refresh(ng-show='indexShow>=0')
     a(ng-click='refresh()')

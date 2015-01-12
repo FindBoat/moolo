@@ -1,12 +1,13 @@
 appRun = (routehelper) ->
   routehelper.configureRoutes [
     {
-      url: '/'
+      url: '/signup'
       config:
         templateUrl: '/client/app/auth/signup.jade'
         controller: 'signupController'
         controllerAs: 'vm'
         title: 'Signup'
+        logoutRequired: true
     }
     {
       url: '/login'
@@ -15,6 +16,7 @@ appRun = (routehelper) ->
         controller: 'loginController'
         controllerAs: 'vm'
         title: 'Login'
+        logoutRequired: true
     }
   ]
 

@@ -4,7 +4,9 @@
     p.pull-left.date-text {{thePost.createAt | momentFormat: 'MMMM DD, YYYY'}}
     p.pull-right.attr-text {{thePost.createAt | momentFormat: 'hh:mm a'}}
   .post-content
-    p {{thePost.content}}
+    div(ng-bind-html='thePost.content')
   .post-footer.attr-text
-    span {{thePost.location}}
+    i.fa.fa-map-marker
+    &nbsp;{{thePost.location}}
+  .separator
   

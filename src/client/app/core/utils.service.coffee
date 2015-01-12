@@ -1,4 +1,4 @@
-utils = ->
+utils = ($sce) ->
   sample = (arr, size) ->
     shuffled = arr.slice 0
     i = arr.length
@@ -12,9 +12,16 @@ utils = ->
 
     shuffled.slice min
 
+  nl2br = (data) ->
+    if not data? then return data
+    return $sce.trustAsHtml '<p>' + data.replace(/\n\r?/g, '<br />') + '</p>'
+
   service =
     sample: sample
+    nl2br: nl2br
   return service
+
+utils.$inject = ['$sce']
 
 angular
   .module 'app.core'

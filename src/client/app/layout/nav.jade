@@ -4,8 +4,12 @@ nav.navbar.navbar-default.navbar-fixed-top.nav-hide(
     .navbar-header
       a.navbar-brand.shake Moolo
 
-    ul.nav.navbar-nav.navbar-right
+    ul.nav.navbar-nav.navbar-right(ng-show='isLogin')
       li
-        a About
+        a(ng-click='logout()') Logout
+
+    ul.nav.navbar-nav.navbar-right(ng-show='!isLogin')
       li
-        a Logout
+        a(href='#!/signup') Signup
+      li
+        a(href='#!/login') Login

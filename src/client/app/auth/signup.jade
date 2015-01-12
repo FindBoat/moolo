@@ -1,16 +1,31 @@
 .page-signup
-  .fixed-container
+  .fixed-container.container
     .row
-      .col-xs-6.col-xs-offset-3
-        form.form-horizontal(role='form' ng-submit='vm.submitSignupForm()')
-          .form-group
-            input.form-control(type='email' name='email' placeholder='Email'
-                               ng-model='vm.signup.email')
-          .form-group
-            input.form-control(type='password' name='password'
-                               placeholder='Password'
-                               ng-model='vm.signup.password')
-          .row
-            input.col-xs-12.btn.btn-primary.btn-large(
-                type='submit' value='Sign up')
-                         
+      h2 Sign up
+      p
+        | Welcome to Moolo! Email is the only way to sign up since we forbidden
+        | all kinds of social networks in order to protect your privacy.
+      
+      form(name='vm.form' role='form' ng-submit='vm.submitSignupForm()'
+           novalidate)
+        .form-group
+          label(for='email') Email
+          input.form-control(type='email' name='email' placeholder='Email'
+                             ng-model='vm.signup.email' required)
+          p.text-danger(
+              ng-show='vm.form.email.$invalid && vm.formSubmitted')
+            | Valid email is required.
+        .form-group
+          label(for='password') Password
+          input.form-control(type='password' name='password'
+                             placeholder='Password'
+                             ng-model='vm.signup.password' required)
+          p.text-danger(
+              ng-show='vm.form.password.$invalid && vm.formSubmitted')
+            | Password is required.
+
+        .action
+          input.btn.btn-primary(type='submit' value='Sign up')
+
+        p.text-danger(ng-show='vm.signupFail') {{vm.signupError}}
+                                   
