@@ -1,7 +1,5 @@
 var app, port;
 
-console.log('wolawolu');
-
 app = require('./.app/server/app');
 
 port = app.port;

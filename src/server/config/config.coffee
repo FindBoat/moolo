@@ -8,9 +8,7 @@ exports.setEnvironment = (env) ->
       exports.DEBUG_ERROR = true
       exports.DEBUG_CLIENT = true
 
-      exports.DB_HOST = 'localhost'
-      exports.DB_PORT = '27017'
-      exports.DB_NAME = 'example'
+      exports.MONGODB_URI = 'mongodb://localhost:27017/example'
 
       exports.JWT_SECRET = 'jwtsecret'
       exports.JWT_EXPIRES_IN_MINUTES = 30 * 60 * 24 # A month.
@@ -20,5 +18,11 @@ exports.setEnvironment = (env) ->
       exports.DEBUG_WARN = false
       exports.DEBUG_ERROR = true
       exports.DEBUG_CLIENT = false
+
+      exports.MONGODB_URI = process.env.MONGOLAB_URI
+
+      exports.JWT_SECRET = 'jwtsecret'
+      exports.JWT_EXPIRES_IN_MINUTES = 30 * 60 * 24 # A month.
+      
     else
       console.log "Environment #{env} not found"

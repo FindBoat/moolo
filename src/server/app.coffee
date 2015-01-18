@@ -13,12 +13,11 @@ app = express()
 
 # Define Port & Environment.
 app.port = process.env.PORT or process.env.VMC_APP_PORT or 3000
-env = process.env.NODE_ENV or 'dev'
+env = process.env.NODE_ENV or 'prod'
 config.setEnvironment env
 
 # Config mongo db.
-mongoose.connect(
-  "mongodb://#{config.DB_HOST}:#{config.DB_PORT}/#{config.DB_NAME}")
+mongoose.connect config.MONGODB_URI
 
 # Config stylus.
 compile = (str, path) ->
