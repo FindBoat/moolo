@@ -13,7 +13,7 @@ app = express()
 
 # Define Port & Environment.
 app.port = process.env.PORT or process.env.VMC_APP_PORT or 3000
-env = process.env.NODE_ENV or 'dev'
+env = process.env.NODE_ENV or 'prod'
 config.setEnvironment env
 
 # Config mongo db.
